@@ -14,10 +14,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.school.model.Emplois;
 
+@CrossOrigin(origins = "http://localhost:4200")
+
 @RequestMapping(path  = "/emplois")
 public interface EmploisRest {
 
-    @CrossOrigin(origins = "http://localhost:4200")
 
     @GetMapping(path = "/emplois")
     public List<Emplois> showEmplois();
@@ -28,7 +29,7 @@ public interface EmploisRest {
     @PostMapping(path = "/add")
     public Emplois addEmplois(@RequestBody Emplois emplois);
 
-    @PutMapping("/emploiss/{id}")
+    @PutMapping("/emplois/{id}")
     public ResponseEntity<Emplois> updateEmplois(@PathVariable Integer id, @RequestBody Emplois emplois);
 
     @DeleteMapping(path = "emplois/{id}")

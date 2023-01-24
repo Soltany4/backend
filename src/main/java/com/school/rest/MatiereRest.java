@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.school.model.Matiere;
 
+@CrossOrigin(origins = "http://localhost:4200")
 
 @RequestMapping(path = "/matiere")
 public interface MatiereRest {
-    @CrossOrigin(origins = "http://localhost:4200")
 
 
     @GetMapping(path = "/matieres")

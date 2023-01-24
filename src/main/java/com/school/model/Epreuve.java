@@ -36,6 +36,7 @@ public class Epreuve implements Serializable{
 
     @Column(name = "note")
     private Float note;
+    
 
     @JsonIgnore
     @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

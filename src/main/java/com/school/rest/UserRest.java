@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.school.model.User;
 
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping(path = "/user")
 public interface UserRest {
 
-    @CrossOrigin(origins = "http://localhost:4200")
    /*  @PostMapping(path = "/signup")
     public ResponseEntity<String> signUp(@RequestBody(required = true) Map<String,String> requestMap);   */  
 
@@ -31,13 +31,13 @@ public interface UserRest {
     @GetMapping(path = "/users/{id}")
     public ResponseEntity<User> getUserById(@PathVariable Integer id);
 
-    @PutMapping(path = "/useres/{id}")
+    @PutMapping(path = "/users/{id}")
     public ResponseEntity<User> updateUSer(@PathVariable Integer id, @RequestBody User user);
 
-    @DeleteMapping(path = "useres/{id}")
+    @DeleteMapping(path = "users/{id}")
     public String deleteUserById(@PathVariable Integer id);
 
-    @PutMapping(path = "/useres/{user_id}/matiere/matieres/{matiere_id}")
+    @PutMapping(path = "/users/{user_id}/matiere/matieres/{matiere_id}")
     public User assignMatiereToUser(@PathVariable Integer userId, @PathVariable Integer matiereId);
     
 }

@@ -13,10 +13,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.school.model.Epreuve;
 
+@CrossOrigin(origins = "http://localhost:4200")
+
 @RequestMapping(path = "/epreuve")
 public interface EpreuveRest {
 
-    @CrossOrigin(origins = "http://localhost:4200")
 
     @GetMapping(path = "/epreuves")
     public List<Epreuve> showEpreuve();
