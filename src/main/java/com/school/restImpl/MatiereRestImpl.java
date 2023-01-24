@@ -43,5 +43,12 @@ public class MatiereRestImpl implements MatiereRest{
         Matiere mat = matiereDao.findById(id).get();
         return ResponseEntity.ok().body(mat);
     }
+
+    @Override
+    public String deleteMatiereById(Integer id) {
+        Matiere matiere = matiereDao.findById(id).get();
+        matiereDao.delete(matiere);
+        return "Matiere deleted!";
+    }
     
 }

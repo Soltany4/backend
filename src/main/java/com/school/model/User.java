@@ -19,6 +19,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.NamedQuery;
 import jakarta.persistence.Table;
 import lombok.Data;
@@ -73,6 +74,11 @@ public class User implements Serializable{
         inverseJoinColumns = {@JoinColumn(name = "matiere_id", referencedColumnName = "id")}
     )
     private Set<Matiere> matieres = new HashSet<>();
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "emplois_id", referencedColumnName = "id")
+    private Emplois emplois;
+
 
     public void enrollMatiere(Matiere matiere) {
         matieres.add(matiere);

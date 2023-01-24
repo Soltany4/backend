@@ -1,8 +1,8 @@
 package com.school.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
@@ -15,7 +15,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
@@ -36,9 +35,8 @@ public class Emplois implements Serializable{
     private String imageUrl;
 
     @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "eu_id", referencedColumnName = "id")
-    List<User> users = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "emplois")
+    Set<User> users = new HashSet<>();
 
     
 }

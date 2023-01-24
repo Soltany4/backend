@@ -32,5 +32,12 @@ public class EpreuveRestImpl implements EpreuveRest{
         Epreuve e = epreuveDao.save(epreuve);
         return e;
     }
+
+    @Override
+    public String deleteEpreuveById(Integer id) {
+        Epreuve epreuve = epreuveDao.findById(id).get();
+        epreuveDao.delete(epreuve);
+        return "Epreuve deleted!";
+    }
     
 }

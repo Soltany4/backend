@@ -37,5 +37,12 @@ public class EmploisRestImpl implements EmploisRest{
     public ResponseEntity<Emplois> updateEmplois(Integer id, Emplois emplois) {
         return null;
     }
+
+    @Override
+    public String deleteEmploisById(Integer id) {
+        Emplois emplois = emploisDao.findById(id).get();
+        emploisDao.delete(emplois);
+        return "Emplois deleted!";
+    }
     
 }

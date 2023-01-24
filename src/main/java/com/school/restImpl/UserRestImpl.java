@@ -78,5 +78,12 @@ public class UserRestImpl implements UserRest {
         return userDao.save(user);
     }
 
+    @Override
+    public String deleteUserById(Integer id) {
+        User user = userDao.findById(id).get();
+        userDao.delete(user);
+        return "User deleted!";
+    }
+
     
 }

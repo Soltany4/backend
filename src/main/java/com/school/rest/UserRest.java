@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -33,6 +34,10 @@ public interface UserRest {
     @PutMapping(path = "/useres/{id}")
     public ResponseEntity<User> updateUSer(@PathVariable Integer id, @RequestBody User user);
 
-    @PutMapping(path = "/useres/{user_id}/matieres/{matiere_id}")
+    @DeleteMapping(path = "useres/{id}")
+    public String deleteUserById(@PathVariable Integer id);
+
+    @PutMapping(path = "/useres/{user_id}/matiere/matieres/{matiere_id}")
     public User assignMatiereToUser(@PathVariable Integer userId, @PathVariable Integer matiereId);
+    
 }
